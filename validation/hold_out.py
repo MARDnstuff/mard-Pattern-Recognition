@@ -17,7 +17,7 @@ def hold_out(data: pd.DataFrame):
 
     train_idx, val_idx = stratified_holdout(data.y, test_size=0.4, random_state=42) 
     X = data.X.to_numpy()
-    y = data.y.to_numpy()
+    y = data.y.to_numpy().ravel()
 
     model = make_pipeline(StandardScaler(), LogisticRegression(random_state=42))
 

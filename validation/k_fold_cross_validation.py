@@ -17,7 +17,7 @@ def k_fold_cv(data: pd.DataFrame):
     splits = stratified_kfold(data.y, k=5, random_state=42) 
     scores = []
     X = data.X.to_numpy()
-    y = data.y.to_numpy()
+    y = data.y.to_numpy().ravel()
     for train_idx, val_idx in splits:
 
         X_train, y_train = X[train_idx], y[train_idx]
